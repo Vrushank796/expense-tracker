@@ -156,12 +156,6 @@ src
 
 ---
 
-## License
-
-This project is licensed under the MIT License.
-
----
-
 ## Author
 
 - **Vrushank Amin** - [LinkedIn](https://www.linkedin.com/in/vrushank-amin/)
