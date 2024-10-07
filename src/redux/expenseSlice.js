@@ -13,7 +13,7 @@ const expenseSlice = createSlice({
       state.expenses.push(action.payload);
     },
     editExpense: (state, action) => {
-      const { id, description, amount, category } = action.payload;
+      const { id, description, amount, category, date } = action.payload;
       const index = state.expenses.findIndex((expense) => expense.id === id);
       if (index !== -1) {
         // Use spread operator to update the expense
@@ -22,6 +22,7 @@ const expenseSlice = createSlice({
           description, // Update the description
           amount, // Update the amount
           category, // Update the category
+          date, // Update the date
         };
       }
     },
