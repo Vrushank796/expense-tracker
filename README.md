@@ -1,70 +1,167 @@
-# Getting Started with Create React App
+# Personal Expense Tracker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Overview
 
-## Available Scripts
+This is a personal expense tracking web application built with **React** and **Redux** for state management. The application allows users to:
 
-In the project directory, you can run:
+- Add new expense entries.
+- View a list of all expense entries.
+- Edit existing expenses.
+- Delete expenses from the list.
+- Visualize expenses by category using charts.
+- Get a summary of total expenses and categorized breakdowns.
 
-### `npm start`
+This application was built as part of a front-end assessment focusing on **React**, **Redux**, and **front-end design** best practices.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Table of Contents
 
-### `npm test`
+- [Tech Stack](#tech-stack)
+- [Features](#features)
+- [Project Setup](#project-setup)
+- [State Management](#state-management)
+- [Data Visualization](#data-visualization)
+- [Testing](#testing)
+- [Project Structure](#project-structure)
+- [Assumptions](#assumptions)
+- [Future Enhancements](#future-enhancements)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## Tech Stack
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **React** - JavaScript library for building user interfaces.
+- **Redux** - State management library.
+- **Tailwind CSS** - Utility-first CSS framework for styling.
+- **Recharts** - For data visualization (charts).
+- **React Router** - For client-side routing.
+- **Jest** and **React Testing Library** - For testing.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Features
 
-### `npm run eject`
+- **Add Expense:** A form to add a new expense with fields such as description, amount, date, and category.
+- **View Expenses:** A table that displays a list of all entered expenses with options to edit or delete each.
+- **Edit Expense:** Ability to modify an existing expense.
+- **Delete Expense:** Remove an expense from the list.
+- **Expense Summary:** Displays the total expenses and breakdown by category.
+- **Charts:** Pie chart visualization of expenses categorized by type using Recharts.
+- **Local Storage:** Data persistence using browser's local storage.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Project Setup
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Prerequisites
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Before you begin, ensure you have met the following requirements:
 
-## Learn More
+- You have installed **Node.js** (v12 or higher) and **npm** (v6 or higher).
+- You have a code editor such as **VSCode**.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Installation
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Clone this repository:
 
-### Code Splitting
+```bash
+git clone https://github.com/your-username/expense-tracker.git
+cd expense-tracker
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+2. Install dependencies:
 
-### Analyzing the Bundle Size
+```bash
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+3. Start the development server:
 
-### Making a Progressive Web App
+```bash
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+This will start the app on `http://localhost:3000`.
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## State Management
 
-### Deployment
+**Redux** is used for state management in the application. The global state is managed in the `expenseSlice.js` file where actions like `addExpense`, `editExpense`, and `deleteExpense` are defined.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## Data Visualization
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Recharts** is used to visualize the expenses by category. A **Pie Chart** is implemented in the `ExpenseChart.js` component and is displayed on the **Expense Summary** page.
+
+---
+
+## Testing
+
+### Running Tests
+
+To run the unit tests, execute the following command:
+
+```bash
+npm test
+```
+
+**Jest** and **React Testing Library** are used to test key components and Redux reducers. Some examples of tests:
+
+- Adding a new expense.
+- Editing an existing expense.
+- Deleting an expense.
+
+The test files are located in the `src/__tests__` directory and contain tests for:
+
+- **Redux Reducers** (testing state management logic).
+- **React Components** (testing rendering and form functionality).
+
+---
+
+## Project Structure
+
+```bash
+src
+├── components          # React components
+│   ├── ExpenseForm.js    # Form to add or edit expense
+│   ├── ExpenseList.js    # Main Dashboard to check the list of expenses
+├── reduxs
+│   ├── expenseSlice.js  # Redux state slice for managing expenses
+│   └── store.js         # Redux store configuration
+├── __tests__            # Test files for components and reducers
+├── App.js               # Main application component
+├── index.js             # Entry point for React app
+```
+
+---
+
+## Assumptions
+
+- **Data Storage:** Since no backend was required, local storage was used to persist data.
+- **Currency Format:** All amounts are treated as CAD by default.
+- **Simple Category System:** Categories like "Food", "Grocery", "Travel", "Shopping", "Entertainment", "Utilities", "Healthcare", and "Miscellaneous", are predefined.
+
+---
+
+## Future Enhancements
+
+- **Authentication:** Add user login functionality so that multiple users can track their expenses individually.
+- **Backend Integration:** Integrate with a backend to allow users to store and retrieve their expenses in a database.
+- **Graphs:** Add more types of graphs such as line charts to visualize expenses over time.
+- **Sorting and Filtering:** Allow users to filter and sort expenses by date, category, or amount.
+- **Notifications:** Add alerts or notifications for upcoming payments or budgets exceeded.
+
+---
+
+## License
+
+This project is licensed under the MIT License.
+
+---
+
+## Author
+
+- **Vrushank Amin** - [LinkedIn](https://www.linkedin.com/in/vrushank-amin/)
